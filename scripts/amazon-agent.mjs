@@ -16,7 +16,9 @@ Not accepted: short URLs, scraping, copied reviews/images, direct publishing, ac
 Outputs remain local in data/amazon/review-queue/ (gitignored).
 `;
 
+/** @param {string[]} argv @returns {Record<string, string>} */
 function parseFlags(argv) {
+  /** @type {Record<string, string>} */
   const flags = {};
   for (let i = 0; i < argv.length; i += 2) {
     const key = argv[i];
@@ -28,6 +30,7 @@ function parseFlags(argv) {
   return flags;
 }
 
+/** @param {string} input */
 export function validateAmazonLink(input) {
   let url;
   try { url = new URL(input); } catch { throw new Error('Invalid URL.'); }
@@ -83,7 +86,7 @@ async function main() {
     let names;
     try { names = await readdir(queueDir); }
     catch (error) {
-      if (error?.code === 'ENOENT') { process.stdout.write('Review queue is empty.\n'); return; }
+      if (error instanceof Error && 'code' in error && error.code === 'ENOENT') { process.stdout.write('Review queue is empty.\n'); return; }
       throw error;
     }
     const rows = [];

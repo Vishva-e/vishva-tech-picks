@@ -7,6 +7,7 @@ import { spawnSync } from 'node:child_process';
 
 const agent = resolve('scripts/amazon-agent.mjs');
 const safeUrl = 'https://www.amazon.in/dp/B0TEST1234?tag=vishatest-21';
+/** @param {string} queueDir @param {string} command @param {...string} args */
 function invoke(queueDir, command, ...args) {
   return spawnSync(process.execPath, [agent, command, ...args], {
     encoding: 'utf8',
