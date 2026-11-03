@@ -20,6 +20,10 @@ An Astro + TypeScript + Tailwind CSS v4 static editorial website for Indian tech
 
 Use `npm run agent:amazon -- help` for safe, owner-supplied SiteStripe link intake. It never accesses your account or publishes content. See [docs/AMAZON-AGENT.md](docs/AMAZON-AGENT.md).
 
+## Phase 2: Local Amazon product review dashboard
+
+Run `npm run agent:dashboard` after using the manual SiteStripe intake command to review pending products locally. Reviewed candidates are never published automatically. See [docs/PRODUCT-REVIEW.md](docs/PRODUCT-REVIEW.md). No Amazon account is connected.
+
 ## Local development
 
 Requirements: Node.js 22.12+ and an active internet connection for the initial npm install.
