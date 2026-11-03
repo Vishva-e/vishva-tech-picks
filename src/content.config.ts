@@ -15,7 +15,7 @@ const guides = defineCollection({
     featured: z.boolean().default(false),
     draft: z.boolean().default(false),
     tags: z.array(z.string()).default([]),
-    references: z.array(z.object({ label: z.string(), url: z.string().url() })).default([]),
+    references: z.array(z.object({ label: z.string(), url: z.url() })).default([]),
   })
 });
 export const collections = { guides };

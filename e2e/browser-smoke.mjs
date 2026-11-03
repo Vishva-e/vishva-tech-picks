@@ -58,6 +58,7 @@ try {
       await step('comparison switches and remains scrollable on mobile',async()=>{
         await page.goto(origin+'/comparisons/?topic=storage',{waitUntil:'networkidle'});
         assert.match(await page.locator('#comparison-title').innerText(),/Internal vs external SSD/);
+        assert.equal(await page.locator('.comparison-swipe-hint').isVisible(),true);
         await page.locator('#comparison-topic').selectOption('audio');
         assert.match(await page.locator('#comparison-title').innerText(),/Wired vs Bluetooth/);
         await page.screenshot({path:'qa-artifacts/comparisons-375.png',fullPage:true});

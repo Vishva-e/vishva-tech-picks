@@ -42,3 +42,6 @@
 .finder-result .comparison-qualification{font-size:13px;color:#48607e}
 @media(max-width:900px){.guide-controls{grid-template-columns:1fr 1fr}.guide-controls .search-box{grid-column:1/-1}.guide-controls #guide-reset{grid-column:1/-1}.finder-workbench{grid-template-columns:1fr}}
 @media(max-width:540px){.guide-controls{gap:12px}.guide-select-label select{font-size:13px}.finder-result,.finder-form{padding:18px}}
+
+.comparison-swipe-hint{display:none;margin:4px 0 10px;color:#395a88;font-size:12px;font-weight:680}
+@media(max-width:640px){.comparison-swipe-hint{display:block}}
