@@ -1,12 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHeading from '../../components/PageHeading.astro';
+import ComparisonTool from '../../components/ComparisonTool.astro';
 ---
-<BaseLayout title="Tech comparisons" description="Understand practical trade-offs between technology configurations before choosing what to buy.">
-  <PageHeading eyebrow="Decision made simpler" title="Compare what matters" description="We're building evidence-based, useful comparisons — not invented benchmark scores or unverified price tables." />
-  <section class="shell listing-section"><div class="category-grid">
-    <a class="category-card" href="/guides/how-much-ram-for-developers/"><span class="category-icon" aria-hidden="true">🧠</span><div><h3>16 GB vs 32 GB RAM</h3><p>Which memory tier fits your actual coding workload?</p></div><span class="category-arrow">↗</span></a>
-    <a class="category-card" href="/guides/laptop-for-java-developers/"><span class="category-icon" aria-hidden="true">💻</span><div><h3>Developer laptop trade-offs</h3><p>Think beyond CPU names and marketing labels.</p></div><span class="category-arrow">↗</span></a>
-    <a class="category-card" href="/guides/keyboards-for-coding/"><span class="category-icon" aria-hidden="true">⌨️</span><div><h3>Mechanical vs membrane</h3><p>Consider comfort, noise and repairability.</p></div><span class="category-arrow">↗</span></a>
-  </div></section>
+<BaseLayout title="Compare tech choices" description="Interactive, editorial side-by-side comparisons of meaningful hardware trade-offs, without fabricated benchmarks or live Amazon prices.">
+  <PageHeading eyebrow="Decision made simpler" title="Compare what matters" description="Choose a question, see both sides, then read the full guide. No hidden rankings or promotional pricing." />
+  <section class="shell listing-section">
+    <ComparisonTool />
+  </section>
 </BaseLayout>
