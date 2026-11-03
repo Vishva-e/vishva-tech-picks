@@ -36,7 +36,7 @@ Check project and build:
 npm run validate
 ```
 
-Phase 1.1: generate and commit `package-lock.json` from CI after compatibility checks; then switch CI to `npm ci`.
+Use `npm ci` for reproducible installs. CI runs `astro check`, Node tests, and the static build; it never deploys.
 
 ## Security and release gate
 

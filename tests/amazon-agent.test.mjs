@@ -29,7 +29,7 @@ test('rejects unauthorized or non-product URLs without touching local queue', as
         '--category','laptops','--summary','Original editorial note for review only.');
       assert.notEqual(run.status, 0, url);
     }
-    await assert.rejects(readdir(dir));
+    assert.equal((await readdir(dir)).length, 0);
   } finally { await rm(dir, { recursive: true, force: true }); }
 });
 
