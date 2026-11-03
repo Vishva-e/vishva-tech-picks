@@ -21,7 +21,9 @@ function approvedHttpsOrigin(input){
 }
 /** @param {Record<string,string|undefined>} env */
 export function assessRelease(env){
-  const blockers=[],checks=[],notes=[];
+  /** @type {string[]} */ const blockers=[];
+  /** @type {string[]} */ const checks=[];
+  /** @type {string[]} */ const notes=[];
   const mode=env.RELEASE_MODE==='affiliate'?'affiliate':'editorial';
   const origin=approvedHttpsOrigin(env.SITE_URL);
   /** @param {boolean} pass @param {string} description */

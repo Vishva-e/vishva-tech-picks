@@ -27,14 +27,15 @@ if(process.argv.includes('--help')) {
     if(record.reviewStatus!=='approved')continue;
     try {
       const link=validateAmazonLink(record.amazon.url);
+      const latest=record.reviewHistory?.at(-1);
       if(link.asin!==record.amazon.asin || link.trackingId!==record.amazon.trackingId ||
-         record.reviewHistory?.at(-1)?.decision!=='approve' ||
-         !record.reviewHistory?.at(-1)?.note ||
+         latest?.decision!=='approve' ||
+         !latest?.note ||
          record.publishApproved!==false)throw new Error('Candidate provenance mismatch');
       ready.push({
         id:record.id,asin:link.asin,title:record.title,
         category:record.category,affiliateUrl:link.url,
-        editorialNote:record.editorialNote,reviewNote:record.reviewHistory.at(-1).note,
+        editorialNote:record.editorialNote,reviewNote:latest.note,
         editorialStatus:'awaiting-separate-content-pr-and-owner-publication-approval',
         publishApproved:false
       });
