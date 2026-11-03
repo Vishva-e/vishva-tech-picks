@@ -41,6 +41,17 @@ Run `npm run agent:dashboard` after using the manual SiteStripe intake command t
 - Cloudflare requires explicit owner-account connection; this repository does not have Cloudflare access or any API secrets.
 - Details in [Phase 5 launch handoff](docs/PHASE-5-LAUNCH-HANDOFF.md).
 
+## Cloudflare Workers deployment repair (November 3, 2026)
+
+The static site now has a root `wrangler.jsonc` with `assets.directory="./dist"`, so Wrangler does not attempt unnecessary `astro add cloudflare` SSR adapter installation. Worker-specific setup uses:
+
+- Build: `npm run build`
+- Deploy: `npx wrangler deploy --config wrangler.jsonc`
+
+The Wrangler `name` must match the Cloudflare dashboard Worker name; the repository's configured name is not proof that the Worker exists or has been deployed. See [Cloudflare Workers deployment guide](docs/DEPLOYMENT.md).
+
+Cloudflare build-time variables are separate from runtime secrets. Default builds remain `noindex`, and Amazon affiliate activation remains disabled until separate eligibility review.
+
 ## Local development
 
 Requirements: Node.js 22.12+ and an active internet connection for the initial npm install.
