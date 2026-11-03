@@ -4,12 +4,12 @@
  * This does not contact the internet, publish, or mutate the built site.
  */
 import assert from 'node:assert/strict';
-import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
-import { resolve, join, dirname, relative, sep } from 'node:path';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
+import { resolve, join, relative, sep } from 'node:path';
 
 const root = resolve('dist');
 assert.ok(existsSync(root),'Run npm run build before audit:build.');
-/** @param {string} path */
+/** @param {string} path @returns {string[]} */
 function walk(path) {
   return readdirSync(path, {withFileTypes:true}).flatMap(item=>{
     const abs=join(path,item.name);
@@ -17,7 +17,9 @@ function walk(path) {
   });
 }
 const all=walk(root), html=all.filter(name=>name.endsWith('.html'));
+/** @type {string[]} */
 const errors=[];
+/** @param {boolean} pass @param {string} msg */
 const confirm=(pass,msg)=>{if(!pass)errors.push(msg);};
 confirm(html.length >= 26,`Expected at least 26 static pages; found ${html.length}`);
 confirm(existsSync(join(root,'robots.txt')),'Missing pre-release robots.txt');
