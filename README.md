@@ -16,6 +16,10 @@ An Astro + TypeScript + Tailwind CSS v4 static editorial website for Indian tech
 - Unitless baseline validation using Node's built-in test runner
 - GitHub Actions CI (**no deployment action**) and Cloudflare Pages handoff docs
 
+## Amazon Associates agent (private review queue)
+
+Use `npm run agent:amazon -- help` for safe, owner-supplied SiteStripe link intake. It never accesses your account or publishes content. See [docs/AMAZON-AGENT.md](docs/AMAZON-AGENT.md).
+
 ## Local development
 
 Requirements: Node.js 22.12+ and an active internet connection for the initial npm install.
@@ -32,7 +36,7 @@ Check project and build:
 npm run validate
 ```
 
-The first `npm install` will create `package-lock.json`. Commit it before opening a PR and update CI to `npm ci` once generated.
+Use `npm ci` for reproducible installs. CI runs `astro check`, Node tests, and the static build; it never deploys.
 
 ## Security and release gate
 

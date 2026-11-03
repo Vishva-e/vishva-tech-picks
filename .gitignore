@@ -8,3 +8,6 @@ dist/
 .cloudflare/
 .wrangler/
 coverage/
+
+# Agent data stays private and is never committed
+data/amazon/review-queue/
