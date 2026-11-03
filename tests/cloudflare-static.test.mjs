@@ -2,6 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 
+/** @param {string} path */
 const read=(path)=>readFileSync(path,'utf8');
 
 test('Cloudflare Workers has an explicit static-assets Wrangler config',()=>{
