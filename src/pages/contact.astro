@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const contactEmail=import.meta.env.PUBLIC_CONTACT_EMAIL?.trim() || '';
+import { approvedPublicContactEmail } from '../config/public-contact.mjs';
+const contactEmail=approvedPublicContactEmail;
 const contactEnabled=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactEmail) && contactEmail.length<=254;
 ---
 <BaseLayout title="Contact" description="Send corrections, research suggestions or editorial questions to Visha Tech Picks.">

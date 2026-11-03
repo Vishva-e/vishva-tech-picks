@@ -14,7 +14,7 @@
 ## Remaining details genuinely required to publish
 1. A **Cloudflare account** connected to GitHub, with access to the private `Vishva-e/vishva-tech-picks` repo (not available from the existing tools).
 2. A **real approved site hostname**, either a verified custom domain or a Cloudflare-generated `*.pages.dev` hostname that the owner confirms. Do not assume a hostname exists.
-3. A **public-facing editorial contact email** explicitly approved for visitors. Do not use a personal mailbox without permission.
+3. A **public-facing editorial contact email** explicitly approved for visitors: `vishvaelumalai98@gmail.com` (owner approved; committed to site source).
 4. Final human content review, legal/privacy checks against actual hosting logs and a physical-device/screen-reader test. CI axe checks are a good baseline but not complete certification.
 
 ## Safe Cloudflare Pages configuration (after outstanding gates are satisfied)
@@ -44,7 +44,7 @@ HOSTING_APPROVED=true
 CONTENT_REVIEW_APPROVED=true
 PRIVACY_REVIEW_APPROVED=true
 DEVICE_ACCESSIBILITY_APPROVED=true
-PUBLIC_CONTACT_EMAIL=<approved public-facing email address>
+PUBLIC_CONTACT_EMAIL=vishvaelumalai98@gmail.com
 SITE_URL=https://<exact approved host>/
 PUBLIC_AMAZON_ASSOCIATE_ACTIVE=false
 ```
