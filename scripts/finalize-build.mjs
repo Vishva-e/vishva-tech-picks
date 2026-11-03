@@ -19,8 +19,10 @@ function pageFiles(dir) {
   }
   return files;
 }
+/** @type {Record<string,string>} */
+const escapeEntities={'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'};
 /** @param {string} str */
-const xmlEscape=str=>str.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'})[c]);
+const xmlEscape=str=>str.replace(/[&<>"']/g,c=>escapeEntities[c] ?? c);
 /**
  * @param {string} outputDir
  * @param {Record<string,string|undefined>} env
@@ -43,7 +45,7 @@ export function finalizeBuild(outputDir, env) {
   if(!assessment.ready){
     throw new Error('Release BLOCKED — '+assessment.blockers.join('; '));
   }
-  const origin=new URL(env.SITE_URL).origin;
+  const origin=new URL(env.SITE_URL ?? '').origin;
   const html=pageFiles(dir).filter(path=>relative(dir,path).split(sep).join('/')!=='404/index.html');
   if(html.length<20)throw new Error('Release blocked: site unexpectedly missing pages.');
   for(const path of html){
