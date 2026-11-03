@@ -7,5 +7,10 @@
       "astro/client",
       "node"
     ]
-  }
+  },
+  "exclude": [
+    "e2e",
+    "dist",
+    "node_modules"
+  ]
 }

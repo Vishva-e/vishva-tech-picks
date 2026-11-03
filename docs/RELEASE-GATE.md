@@ -1,27 +1,33 @@
-# Release gate: MUST NOT PUBLISH WITHOUT OWNER APPROVAL
+# Visha Tech Picks — release checklist
 
-## Status
+## Source and CI
+- [x] Phase 1 website foundation implemented and merged
+- [x] Phase 1.1 npm lockfile and CI repair validated
+- [x] Phase 2: 10 original desk-research buying guides added (editorial approval pending)
+- [x] Phase 2: interactive comparison workbench added
+- [x] Phase 2: localhost-only Amazon draft review dashboard added
+- [ ] Phase 3: merged only after independent PR review
+- [ ] Phase 3: successful Chromium 375/768/1440 QA and static build audit
+- [ ] Human accessibility and mobile physical-device review
+- [ ] All guide facts/sources and disclosure language reviewed
 
-- [x] Architecture / design / implementation direction approved (November 3, 2026)
-- [x] Phase 1 implementation source written
-- [ ] Source dependency install and production build verified
-- [ ] Astro type-check and automated QA verified
-- [ ] Mobile, keyboard and accessibility manual review
-- [ ] Seven additional original articles researched and approved
-- [ ] Public contact channel supplied and verified
-- [ ] Privacy / legal notice checked against actual hosting and data handling
-- [ ] Amazon enrolment verified before switching affiliate declaration on
-- [ ] Final Amazon Associates disclosures reviewed
-- [ ] Production sitemap and canonical URLs configured
-- [ ] Domain / deployment / hosting explicitly approved by owner
-- [ ] Owner explicitly authorizes public release
+## Business and privacy
+- [ ] Public contact channel provided by owner
+- [ ] Privacy policy updated for actual host, logging and any analytics
+- [ ] Amazon Associates registration and real approved site URL verified
+- [ ] Product affiliate links checked with Amazon and editorial approval
+- [ ] Copyright, disclosures, trademark claims and third-party imagery audited
+- [ ] Legal/consumer compliance reviewed for India
 
-## Safeguards
+## Public launch — separate explicit authorization
+- [ ] Hosting service and public domain approved
+- [ ] Real-site metadata, canonical URLs and sitemap validated
+- [ ] Noindex meta tag, prelaunch `robots.txt` and `X-Robots-Tag: noindex` intentionally removed **only at authorized launch**
+- [ ] Real-device/browser performance and accessibility checks
+- [ ] User authorizes Cloudflare connectivity and any hosted preview
+- [ ] User explicitly authorizes public production release
 
-- No Cloudflare connection or Pages project yet.
-- `robots.txt` says `Disallow: /`.
-- Meta robots defaults to `noindex,nofollow,noarchive`.
-- `PUBLIC_SITE_LIVE=true` requires HTTPS `SITE_URL`.
-- A GitHub Actions workflow **does not deploy**.
+## Security release boundary
+Until launch, there is **no deployment**, no public preview and no connected Amazon account. The repository remains private. `robots.txt`, `noindex` and response headers are indexing signals, **not access controls**. A preview URL is still publicly reachable if created.
 
-**Note:** `noindex` and `robots.txt` are not security controls. A real web deployment would still be externally accessible. Keep the source repository private and avoid any hosted deployment until approved.
+See `docs/QA-PHASE3.md` and `docs/AMAZON-ONBOARDING.md`.

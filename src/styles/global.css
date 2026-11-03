@@ -28,3 +28,20 @@
 .comparison-qualification{font-size:13px;color:#536783;margin:20px 0}
 @media (max-width:640px){.comparison-workbench{padding:15px;border-radius:17px}.comparison-scroll{margin-inline:-2px}.comparison-scroll th,.comparison-scroll td{padding:12px}.comparison-scroll table{min-width:590px}.comparison-selector select{font-size:15px}}
 @media (prefers-reduced-motion:reduce){.btn,.category-card,.guide-card{transition:none!important}}
+
+/* Phase 3: responsive product-finder and guide discovery */
+.guide-controls{display:grid;grid-template-columns:minmax(230px,2fr) repeat(2,minmax(135px,1fr)) auto;align-items:end;gap:12px;margin-bottom:18px}
+.guide-controls .search-box{margin:0;height:52px;min-width:0}
+.guide-select-label{display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:740;color:#425674;min-width:0}
+.guide-select-label select,.finder-form select{border:1px solid #bdcce0;background:white;border-radius:12px;min-height:48px;padding:10px 12px;color:var(--ink);font:inherit;font-size:14px;min-width:0;width:100%}
+.guide-count{color:var(--muted);font-size:13px;font-weight:620;margin:12px 0 18px}
+.finder-workbench{display:grid;grid-template-columns:minmax(260px,.8fr) minmax(320px,1.2fr);gap:22px;align-items:start}
+.finder-form,.finder-result{background:#fff;border:1px solid var(--line);padding:clamp(18px,3vw,30px);border-radius:20px;min-width:0}
+.finder-form{display:grid;gap:12px}.finder-form label{font-weight:740;font-size:14px}.finder-result h2{font-size:clamp(22px,3vw,31px);letter-spacing:-.7px;line-height:1.25;margin:10px 0}.finder-result p{color:var(--muted)}
+.finder-result ul{padding-left:22px;margin:18px 0 23px}.finder-result li{padding:5px 0;line-height:1.6}
+.finder-result .comparison-qualification{font-size:13px;color:#48607e}
+@media(max-width:900px){.guide-controls{grid-template-columns:1fr 1fr}.guide-controls .search-box{grid-column:1/-1}.guide-controls #guide-reset{grid-column:1/-1}.finder-workbench{grid-template-columns:1fr}}
+@media(max-width:540px){.guide-controls{gap:12px}.guide-select-label select{font-size:13px}.finder-result,.finder-form{padding:18px}}
+
+.comparison-swipe-hint{display:none;margin:4px 0 10px;color:#395a88;font-size:12px;font-weight:680}
+@media(max-width:640px){.comparison-swipe-hint{display:block}}

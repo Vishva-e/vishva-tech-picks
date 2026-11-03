@@ -1,4 +1,4 @@
-# CI only — no deployment and no account permissions or secrets.
+# Private repository CI only. Never deploys or creates a public preview.
 name: Foundation checks
 on:
   pull_request:
@@ -16,5 +16,38 @@ jobs:
           cache: 'npm'
       - name: Reproducible dependency install
         run: npm ci --no-audit --no-fund
-      - name: Type-check, tests and static build
+      - name: Type-check, tests, build and static audit
         run: npm run validate
+  browser-qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+      - name: Install locked project dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Install pinned private browser test dependency without changing lockfile
+        run: npm install --no-save --package-lock=false --no-audit --no-fund playwright@1.55.0
+      - name: Install Chromium for headless QA
+        run: npx playwright install chromium
+      - name: Run localhost-only browser smoke tests
+        shell: bash
+        run: |
+          npm run dev -- --port 4321 >/tmp/visha-astro-dev.log 2>&1 &
+          echo $! >/tmp/visha-astro-dev.pid
+          for i in {1..60}; do
+            if curl -fsS http://127.0.0.1:4321/ >/dev/null; then break; fi
+            sleep 1
+          done
+          curl --fail --silent --show-error http://127.0.0.1:4321/ >/dev/null
+          node e2e/browser-smoke.mjs
+      - name: Attach screenshots to private workflow for owner review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: private-browser-qa-screenshots
+          path: qa-artifacts/
+          if-no-files-found: ignore
+          retention-days: 7

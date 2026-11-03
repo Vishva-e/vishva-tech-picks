@@ -24,6 +24,14 @@ Use `npm run agent:amazon -- help` for safe, owner-supplied SiteStripe link inta
 
 Run `npm run agent:dashboard` after using the manual SiteStripe intake command to review pending products locally. Reviewed candidates are never published automatically. See [docs/PRODUCT-REVIEW.md](docs/PRODUCT-REVIEW.md). No Amazon account is connected.
 
+## Phase 3: Discover and verify
+
+- `/product-finder/` offers a deterministic, privacy-friendly buying criteria finder (no Amazon catalogue or actual price data).
+- `/guides/` supports search, category filtering and sorting without a backend.
+- `npm run validate` now includes a static SEO/noindex/internal-link audit after the Astro build.
+- Private GitHub Actions headless Chromium checks run at mobile, tablet and desktop widths; screenshots remain CI artifacts only.
+- Amazon account onboarding remains manual, separate and unconnected. See [docs/AMAZON-ONBOARDING.md](docs/AMAZON-ONBOARDING.md) and [docs/QA-PHASE3.md](docs/QA-PHASE3.md).
+
 ## Local development
 
 Requirements: Node.js 22.12+ and an active internet connection for the initial npm install.
