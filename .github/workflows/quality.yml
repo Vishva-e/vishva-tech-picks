@@ -29,7 +29,7 @@ jobs:
       - name: Install locked project dependencies
         run: npm ci --no-audit --no-fund
       - name: Install pinned private browser test dependency without changing lockfile
-        run: npm install --no-save --package-lock=false --no-audit --no-fund playwright@1.55.0
+        run: npm install --no-save --package-lock=false --no-audit --no-fund playwright@1.55.0 @axe-core/playwright@4.14.0
       - name: Install Chromium for headless QA
         run: npx playwright install chromium
       - name: Run localhost-only browser smoke tests
@@ -43,6 +43,7 @@ jobs:
           done
           curl --fail --silent --show-error http://127.0.0.1:4321/ >/dev/null
           node e2e/browser-smoke.mjs
+          node e2e/accessibility-audit.mjs
       - name: Attach screenshots to private workflow for owner review
         if: always()
         uses: actions/upload-artifact@v4

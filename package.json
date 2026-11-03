@@ -13,7 +13,9 @@
     "agent:amazon": "node scripts/amazon-agent.mjs",
     "agent:amazon:help": "node scripts/amazon-agent.mjs help",
     "agent:dashboard": "node scripts/product-review-dashboard.mjs",
-    "audit:build": "node scripts/audit-build.mjs"
+    "audit:build": "node scripts/audit-build.mjs",
+    "agent:handoff": "node scripts/amazon-handoff.mjs",
+    "release:preflight": "node scripts/release-preflight.mjs"
   },
   "dependencies": {
     "astro": "^6.0.0",

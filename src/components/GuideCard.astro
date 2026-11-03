@@ -14,6 +14,6 @@ const category = categoryBySlug(guide.data.category);
     <div class="guide-meta"><span class="eyebrow">{category?.name ?? 'Technology'}</span><span class="dot" aria-hidden="true">·</span><span>{guide.data.readMinutes} min read</span></div>
     <h3><a href={`/guides/${guide.id}/`}>{guide.data.title}</a></h3>
     <p>{guide.data.description}</p>
-    <div class="guide-bottom"><span>{formatDate(guide.data.updatedAt)}</span><a href={`/guides/${guide.id}/`} aria-label={`Read ${guide.data.title}`}>Read guide <span aria-hidden="true">↗</span></a></div>
+    <div class="guide-bottom"><span>{formatDate(guide.data.updatedAt)}</span><a href={`/guides/${guide.id}/`} aria-label={`Read guide: ${guide.data.title}`}>Read guide <span aria-hidden="true">↗</span></a></div>
   </div>
 </article>
