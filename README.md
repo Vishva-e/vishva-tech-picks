@@ -1,6 +1,8 @@
-# Vishva Tech Picks
+# Visha Tech Picks
 
 **Status: Phase 1 implementation candidate — NOT PUBLISHED.**
+
+**Brand:** Visha Tech Picks. **GitHub repository (original slug):** `Vishva-e/vishva-tech-picks`.
 
 An Astro + TypeScript + Tailwind CSS v4 static editorial website for Indian tech buyers. Built for source-controlled Markdown buying guides and a future Amazon Associates integration after editorial and policy review.
 
