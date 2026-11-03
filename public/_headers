@@ -1,4 +1,4 @@
-# Pre-release: these are Cloudflare Pages static response headers for a future approved deployment.
+# Pre-release static response headers for Cloudflare Workers Static Assets and Pages.
 # IMPORTANT: remove the X-Robots-Tag noindex header only after explicit launch approval.
 /*
   X-Content-Type-Options: nosniff
