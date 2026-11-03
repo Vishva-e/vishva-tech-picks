@@ -32,7 +32,16 @@ Run `npm run agent:dashboard` after using the manual SiteStripe intake command t
 - Private GitHub Actions headless Chromium checks run at mobile, tablet and desktop widths; screenshots remain CI artifacts only.
 - Amazon account onboarding remains manual, separate and unconnected. See [docs/AMAZON-ONBOARDING.md](docs/AMAZON-ONBOARDING.md) and [docs/QA-PHASE3.md](docs/QA-PHASE3.md).
 
-## Phase 4: Editorial handoff and release preflight\n\n- `npm run agent:handoff` checks owner-approved Amazon link candidates locally; `-- --write` writes a **gitignored private editorial JSON handoff**. It never modifies public website files or logs into Amazon.\n- `npm run release:preflight` fails closed until owner-authorized hosting, contact, legal/editorial review and relevant Amazon approval details exist. It **does not deploy**.\n- Public contact email is optional during development and shown only if a valid owner-approved `PUBLIC_CONTACT_EMAIL` is supplied.\n- See [Phase 4 release-readiness plan](docs/PHASE-4-READINESS.md).\n\n## Local development
+## Phase 4: Editorial handoff and release preflight\n\n- `npm run agent:handoff` checks owner-approved Amazon link candidates locally; `-- --write` writes a **gitignored private editorial JSON handoff**. It never modifies public website files or logs into Amazon.\n- `npm run release:preflight` fails closed until owner-authorized hosting, contact, legal/editorial review and relevant Amazon approval details exist. It **does not deploy**.\n- Public contact email is optional during development and shown only if a valid owner-approved `PUBLIC_CONTACT_EMAIL` is supplied.\n- See [Phase 4 release-readiness plan](docs/PHASE-4-READINESS.md).\n\n## Phase 5 — editorial-only launch packaging (not deployed)
+
+- The default `npm run build` preserves robots noindex and Cloudflare `X-Robots-Tag` safeguards.
+- Live builds require `assessRelease` gates (approved real HTTPS domain, editor/contact/legal/device approvals and a separate owner release decision).
+- When all gates are explicitly satisfied, `npm run build:release` prepares canonicals, production robots, XML sitemap and release-safe headers **in dist only**. This command **does not publish**.
+- GitHub CI attaches a seven-day **private static artifact ZIP** for local review, with pre-release noindex intact.
+- Cloudflare requires explicit owner-account connection; this repository does not have Cloudflare access or any API secrets.
+- Details in [Phase 5 launch handoff](docs/PHASE-5-LAUNCH-HANDOFF.md).
+
+## Local development
 
 Requirements: Node.js 22.12+ and an active internet connection for the initial npm install.
 
@@ -65,7 +74,7 @@ See [docs/RELEASE-GATE.md](docs/RELEASE-GATE.md) for full criteria.
 1. Ten desk-researched guides are present; a human source-accuracy and editorial review remains outstanding.
 2. No contact endpoint exists until an approved public email/form is provided.
 3. No affiliate tracking links, no product price API and no third-party analytics.
-4. A production sitemap and canonical metadata need a verified public URL at the release gate.
+4. A verified production URL and all preflight approvals are needed for release-time sitemap and canonical generation.
 5. The Astro build, unit tests and Chromium QA were verified in private GitHub Actions. Actual physical-device and legal reviews are still required before launch.
 
 ## Source structure

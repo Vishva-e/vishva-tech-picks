@@ -18,6 +18,13 @@ jobs:
         run: npm ci --no-audit --no-fund
       - name: Type-check, tests, build and static audit
         run: npm run validate
+      - name: Save unpublished static website for private offline review
+        uses: actions/upload-artifact@v4
+        with:
+          name: private-unpublished-static-site
+          path: dist/
+          if-no-files-found: error
+          retention-days: 7
   browser-qa:
     runs-on: ubuntu-latest
     steps:
