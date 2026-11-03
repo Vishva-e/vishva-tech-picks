@@ -1,4 +1,4 @@
-# Continuous integration only. No build artifacts are deployed or made public.
+# Checks only: never deploys, publishes, or connects Amazon credentials.
 name: Foundation checks
 on:
   pull_request:
@@ -13,7 +13,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Install dependencies
+      - name: Install dependencies and generate first lockfile
         run: npm install --no-audit --no-fund
-      - name: Test, type-check and build
+      - name: Preserve generated dependency lockfile for reviewed commit
+        uses: actions/upload-artifact@v4
+        with:
+          name: candidate-package-lock
+          path: package-lock.json
+          retention-days: 7
+      - name: Type-check, test and build
         run: npm run validate

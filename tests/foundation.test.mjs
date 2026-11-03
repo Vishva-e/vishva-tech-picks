@@ -3,8 +3,8 @@ import { test } from 'node:test';
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 const root = resolve(import.meta.dirname, '..');
-const load = path => readFileSync(resolve(root,path),'utf8');
-const guideFiles = readdirSync(resolve(root,'src/content/guides')).filter(x=>x.endsWith('.md'));
+const load = (/** @type {string} */ path) => readFileSync(resolve(root,path),'utf8');
+const guideFiles = readdirSync(resolve(root,'src/content/guides')).filter((/** @type {string} */ x)=>x.endsWith('.md'));
 const pages = ['src/pages/index.astro','src/pages/guides/index.astro','src/pages/guides/[slug].astro','src/pages/categories/[slug].astro','src/pages/comparisons/index.astro', 'src/pages/about.astro','src/pages/editorial-policy.astro','src/pages/affiliate-disclosure.astro','src/pages/privacy.astro','src/pages/contact.astro', 'src/pages/404.astro'];
 test('required routes and core components exist',()=>{
   for(const page of pages) assert.ok(existsSync(resolve(root,page)),`Missing ${page}`);

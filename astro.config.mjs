@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
-import tailwindcss from '@tailwindcss/vite';
 
-// Do not set SITE_URL or PUBLIC_SITE_LIVE until owner approves a public release.
+// Tailwind 4 is configured through PostCSS, preventing duplicate Vite type trees.
+// Never turn on public release flags without the owner's separate approval.
 const site = process.env.SITE_URL?.trim();
 const published = process.env.PUBLIC_SITE_LIVE === 'true';
 if (published && (!site || !/^https:\/\//.test(site))) {
@@ -12,5 +12,4 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'always',
   ...(site ? { site } : {}),
-  vite: { plugins: [tailwindcss()] },
 });
