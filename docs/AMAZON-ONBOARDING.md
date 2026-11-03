@@ -30,4 +30,4 @@ Eligibility, marketplace and programme conditions must be rechecked at integrati
 - Do not claim Amazon endorsement or account access.
 - Final terms: https://affiliate-program.amazon.in/help/operating/agreement
 
-The public website and Amazon account linkage remain separate decisions requiring explicit owner approval.
+The first publication should normally be an owner-approved editorial-only website, with no affiliate links. After it is publicly reachable, the owner can register that actual URL in Associates Central. The public website and Amazon account linkage remain separate decisions requiring explicit owner approval.\n\nFor local approved-product review exports, see [Phase 4 readiness](PHASE-4-READINESS.md).

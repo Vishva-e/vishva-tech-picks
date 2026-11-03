@@ -6,8 +6,8 @@
 - [x] Phase 2: 10 original desk-research buying guides added (editorial approval pending)
 - [x] Phase 2: interactive comparison workbench added
 - [x] Phase 2: localhost-only Amazon draft review dashboard added
-- [ ] Phase 3: merged only after independent PR review
-- [ ] Phase 3: successful Chromium 375/768/1440 QA and static build audit
+- [x] Phase 3 merged with owner approval into main
+- [x] Phase 3 Chromium 375/768/1440 QA and static build audit passed on GitHub
 - [ ] Human accessibility and mobile physical-device review
 - [ ] All guide facts/sources and disclosure language reviewed
 
@@ -30,4 +30,4 @@
 ## Security release boundary
 Until launch, there is **no deployment**, no public preview and no connected Amazon account. The repository remains private. `robots.txt`, `noindex` and response headers are indexing signals, **not access controls**. A preview URL is still publicly reachable if created.
 
-See `docs/QA-PHASE3.md` and `docs/AMAZON-ONBOARDING.md`.
+See `docs/QA-PHASE3.md`, `docs/AMAZON-ONBOARDING.md`, and `docs/PHASE-4-READINESS.md`.\n\nPhase 4: local-only affiliate editorial handoff, optional approved contact email, fail-closed release preflight and automated accessibility audit are development tasks. They do not authorize hosting.
