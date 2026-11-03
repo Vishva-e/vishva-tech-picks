@@ -19,6 +19,7 @@ export const navigation = [
   {label:'Laptops', href:'/categories/laptops/'},
   {label:'Developer Gear', href:'/categories/developer-gear/'},
   {label:'Comparisons', href:'/comparisons/'},
+  {label:'Product Finder', href:'/product-finder/'},
   {label:'About', href:'/about/'},
 ];
 export function formatDate(date: Date) {
