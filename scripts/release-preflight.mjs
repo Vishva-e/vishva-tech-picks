@@ -4,6 +4,7 @@
  */
 import { fileURLToPath } from 'node:url';
 import { resolve } from 'node:path';
+import { approvedPublicContactEmail } from '../src/config/public-contact.mjs';
 
 /** @param {string|undefined} value */
 const on=value=>value==='true';
@@ -35,9 +36,9 @@ export function assessRelease(env){
   check(on(env.PRIVACY_REVIEW_APPROVED),'Actual hosting/privacy/legal notice reviewed by the owner');
   check(on(env.DEVICE_ACCESSIBILITY_APPROVED),'Real device, keyboard and accessibility review completed');
   check(on(env.HOSTING_APPROVED),'Cloudflare hosting and public URL independently approved');
-  const contact=env.PUBLIC_CONTACT_EMAIL?.trim()||'';
-  check(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact)&&contact.length<=254,
-    'Public contact email approved for publication');
+  const contact=env.PUBLIC_CONTACT_EMAIL?.trim()||approvedPublicContactEmail;
+  check(contact===approvedPublicContactEmail && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact) && contact.length<=254,
+    'Public contact email matches the owner-approved address');
   if(mode==='affiliate'){
     check(on(env.PUBLIC_AMAZON_ASSOCIATE_ACTIVE),'Active Amazon Associates participation verified');
     check(on(env.AMAZON_SITE_REGISTERED),'Real site URL added to Associates website list');

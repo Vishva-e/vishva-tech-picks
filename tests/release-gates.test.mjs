@@ -22,9 +22,11 @@ test('editorial and affiliate publication require separate gates',()=>{
     SITE_URL:'https://vishatechpicks.example.org/',
     OWNER_RELEASE_APPROVED:'true',PUBLIC_SITE_LIVE:'true',CONTENT_REVIEW_APPROVED:'true',
     PRIVACY_REVIEW_APPROVED:'true',DEVICE_ACCESSIBILITY_APPROVED:'true',
-    HOSTING_APPROVED:'true',PUBLIC_CONTACT_EMAIL:'editor@example.org'
+    HOSTING_APPROVED:'true',PUBLIC_CONTACT_EMAIL:'vishvaelumalai98@gmail.com'
   };
   assert.equal(assessRelease(e).ready,true);
+  assert.equal(assessRelease({...e,PUBLIC_CONTACT_EMAIL:'unapproved@example.org'}).ready,false);
+  assert.equal(assessRelease({...e,PUBLIC_CONTACT_EMAIL:undefined}).ready,true);
   assert.equal(assessRelease({...e,PUBLIC_AMAZON_ASSOCIATE_ACTIVE:'true'}).ready,false);
   assert.equal(assessRelease({...e,RELEASE_MODE:'affiliate'}).ready,false);
   assert.equal(assessRelease({...e,RELEASE_MODE:'affiliate',PUBLIC_AMAZON_ASSOCIATE_ACTIVE:'true',

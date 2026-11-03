@@ -1,6 +1,6 @@
 # Visha Tech Picks
 
-**Status: Phases 1–3 merged and CI-verified; Phase 4 release-preparation candidate — NOT PUBLISHED.**
+**Status: Phases 1–5 merged and CI-verified. Public release pending Cloudflare access and final launch sign-off.**
 
 **Brand:** Visha Tech Picks. **GitHub repository (original slug):** `Vishva-e/vishva-tech-picks`.
 
@@ -32,7 +32,7 @@ Run `npm run agent:dashboard` after using the manual SiteStripe intake command t
 - Private GitHub Actions headless Chromium checks run at mobile, tablet and desktop widths; screenshots remain CI artifacts only.
 - Amazon account onboarding remains manual, separate and unconnected. See [docs/AMAZON-ONBOARDING.md](docs/AMAZON-ONBOARDING.md) and [docs/QA-PHASE3.md](docs/QA-PHASE3.md).
 
-## Phase 4: Editorial handoff and release preflight\n\n- `npm run agent:handoff` checks owner-approved Amazon link candidates locally; `-- --write` writes a **gitignored private editorial JSON handoff**. It never modifies public website files or logs into Amazon.\n- `npm run release:preflight` fails closed until owner-authorized hosting, contact, legal/editorial review and relevant Amazon approval details exist. It **does not deploy**.\n- Public contact email is optional during development and shown only if a valid owner-approved `PUBLIC_CONTACT_EMAIL` is supplied.\n- See [Phase 4 release-readiness plan](docs/PHASE-4-READINESS.md).\n\n## Phase 5 — editorial-only launch packaging (not deployed)
+## Phase 4: Editorial handoff and release preflight\n\n- `npm run agent:handoff` checks owner-approved Amazon link candidates locally; `-- --write` writes a **gitignored private editorial JSON handoff**. It never modifies public website files or logs into Amazon.\n- `npm run release:preflight` fails closed until owner-authorized hosting, contact, legal/editorial review and relevant Amazon approval details exist. It **does not deploy**.\n- The approved public editorial contact email is set in `src/config/public-contact.mjs`; release preflight rejects a mismatched `PUBLIC_CONTACT_EMAIL` override.\n- See [Phase 4 release-readiness plan](docs/PHASE-4-READINESS.md).\n\n## Phase 5 — editorial-only launch packaging (not deployed)
 
 - The default `npm run build` preserves robots noindex and Cloudflare `X-Robots-Tag` safeguards.
 - Live builds require `assessRelease` gates (approved real HTTPS domain, editor/contact/legal/device approvals and a separate owner release decision).
@@ -62,7 +62,7 @@ Use `npm ci` for reproducible installs. CI runs `astro check`, Node tests, and t
 ## Security and release gate
 
 - No Amazon tracking IDs or referral links are present; Associate earning claims are hidden unless confirmed active.
-- No private contact details or secrets are bundled.
+- Owner-approved editorial contact email is public website content; no passwords or account credentials are bundled.
 - Before release, the built site uses `noindex` metadata and `public/robots.txt` disallows crawling.
 - A future approved launch must explicitly set `PUBLIC_SITE_LIVE=true`, `SITE_URL=https://<approved-hostname>`, update robots.txt, verify privacy/legal disclosures and test SEO configuration.
 - **Do not connect Cloudflare Pages / trigger a hosted preview until the owner separately authorizes the visibility and release approach.** A preview URL can still be publicly accessible to someone who has the link.
@@ -72,7 +72,7 @@ See [docs/RELEASE-GATE.md](docs/RELEASE-GATE.md) for full criteria.
 ## Current limitations
 
 1. Ten desk-researched guides are present; a human source-accuracy and editorial review remains outstanding.
-2. No contact endpoint exists until an approved public email/form is provided.
+2. Public editorial contact email is configured; no contact form or backend endpoint is present.
 3. No affiliate tracking links, no product price API and no third-party analytics.
 4. A verified production URL and all preflight approvals are needed for release-time sitemap and canonical generation.
 5. The Astro build, unit tests and Chromium QA were verified in private GitHub Actions. Actual physical-device and legal reviews are still required before launch.

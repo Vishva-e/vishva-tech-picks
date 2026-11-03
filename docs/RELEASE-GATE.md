@@ -12,14 +12,14 @@
 - [ ] All guide facts/sources and disclosure language reviewed
 
 ## Business and privacy
-- [ ] Public contact channel provided by owner
+- [x] Public editorial contact channel approved by owner (vishvaelumalai98@gmail.com)
 - [ ] Privacy policy updated for actual host, logging and any analytics
 - [ ] Amazon Associates registration and real approved site URL verified
 - [ ] Product affiliate links checked with Amazon and editorial approval
 - [ ] Copyright, disclosures, trademark claims and third-party imagery audited
 - [ ] Legal/consumer compliance reviewed for India
 
-## Phase 5 — Editorial-only release artifact\n- [x] Added safe noindex default builds and gated production SEO output with canonical URL, robots.txt, XML sitemap and Cloudflare headers\n- [ ] Owner-approved real public contact address provided\n- [ ] Cloudflare connection and real production hostname confirmed\n- [ ] Human content/privacy and physical-device accessibility review independently completed\n- [ ] Production launch explicitly authorized with complete real-world approvals\n\n## Public launch — separate explicit authorization
+## Phase 5 — Editorial-only release artifact\n- [x] Added safe noindex default builds and gated production SEO output with canonical URL, robots.txt, XML sitemap and Cloudflare headers\n- [x] Owner-approved real public contact address provided\n- [ ] Cloudflare connection and real production hostname confirmed\n- [ ] Human content/privacy and physical-device accessibility review independently completed\n- [ ] Production launch explicitly authorized with complete real-world approvals\n\n## Public launch — separate explicit authorization
 - [ ] Hosting service and public domain approved
 - [ ] Real-site metadata, canonical URLs and sitemap validated
 - [ ] Noindex meta tag, prelaunch `robots.txt` and `X-Robots-Tag: noindex` intentionally removed **only at authorized launch**
